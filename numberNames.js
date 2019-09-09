@@ -1,5 +1,5 @@
 // Converts integers between 0 and 19,999 to English,
-// e.g. 19,992 -> "nineteen thousand nine hundred ninety two"
+// e.g. 19,992 -> "nineteen thousand, nine hundred and ninety-two"
 const numToEng = (n) => {
     if (n===0) return "zero"; 
 	const smalls = ["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
@@ -40,6 +40,6 @@ const numToEng = (n) => {
 	return outputWords.join(" ");
 }
 
-for(let i = 0; i < 230; i++) {
+for(let i = 19990; i < 19993; i++) {
     console.log(numToEng(i));
 }
