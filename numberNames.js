@@ -17,12 +17,18 @@ const numToEng = (n) => {
 	}
 	if (n>=20) {
 		outputWords.push(tens[Math.floor(n/10)-1]);
-		n-=Math.floor(n/10)*10;
-	}
-	outputWords.push(smalls[n-1]);
+        n-=Math.floor(n/10)*10;
+        if (n%10) {
+            outputWords[outputWords.length-1]+="-"+smalls[n-1];
+            n-=smalls[n-1];
+        }
+    }
+    if (n) {
+        outputWords.push(smalls[n-1]);
+    }
 	return outputWords.join(" ");
 }
 
-for(let i = 0; i < 20000; i++) {
+for(let i = 0; i < 150; i++) {
     console.log(numToEng(i));
 }
