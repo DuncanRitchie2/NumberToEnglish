@@ -9,6 +9,14 @@ const numToEng = (n) => {
 		outputWords.push(smalls[Math.floor(n/1000)-1]);
 		outputWords.push("thousand");
 		n=n%1000;
+        if (n) {
+            if (n>=100) {
+                outputWords[outputWords.length-1]+=",";
+            }
+            else {
+                outputWords.push("and");
+            }
+        }
 	}
 	if (n>=100) {
 		outputWords.push(smalls[Math.floor(n/100)-1]);
@@ -32,6 +40,6 @@ const numToEng = (n) => {
 	return outputWords.join(" ");
 }
 
-for(let i = 0; i < 1030; i++) {
+for(let i = 0; i < 230; i++) {
     console.log(numToEng(i));
 }
