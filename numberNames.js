@@ -13,7 +13,10 @@ const numToEng = (n) => {
 	if (n>=100) {
 		outputWords.push(smalls[Math.floor(n/100)-1]);
 		outputWords.push("hundred");
-		n=n%100;
+        n=n%100;
+        if (n) {
+            outputWords.push("and");
+        }
 	}
 	if (n>=20) {
 		outputWords.push(tens[Math.floor(n/10)-1]);
@@ -29,6 +32,6 @@ const numToEng = (n) => {
 	return outputWords.join(" ");
 }
 
-for(let i = 0; i < 150; i++) {
+for(let i = 0; i < 1030; i++) {
     console.log(numToEng(i));
 }
